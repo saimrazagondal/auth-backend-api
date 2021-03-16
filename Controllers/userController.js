@@ -1,28 +1,22 @@
 const { successHandler, errorHandler } = require('../Utils/responseHandler');
 
-const Login = (req, res) => {
+const changePassword = (req, res) => {
   console.log(req.body);
   return successHandler(res, 200, null);
 };
 
-const Register = (req, res) => {
+const enableMFA = (req, res) => {
   console.log(req.body);
   return successHandler(res, 200, null);
 };
 
-const resetPassword = (req, res) => {
-  console.log(req.body);
-  return successHandler(res, 200, null);
-};
-
-const sendOtpEmail = (req, res) => {
+const disableMFA = (req, res) => {
   console.log(req.body);
   return successHandler(res, 200, null);
 };
 
 module.exports = {
-  Login,
-  Register,
-  resetPassword,
-  sendOtpEmail,
+  changePassword,
+  enableMFA,
+  disableMFA,
 };

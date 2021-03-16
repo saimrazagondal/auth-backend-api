@@ -4,8 +4,13 @@ const morgan = require('morgan');
 const cors = require('cors')
 const mongoose = require('mongoose');
 
+// Middleware Imports
+const { verifyToken } = require('./middlewares/verifyToken');
+
 // Router Imports
 const authRouter = require('./routes/authRouter');
+const userRouter = require('./routes/userRouter');
+
 const DB_URI = (process.env.mongoConnectionString);
 mongoose
     .connect(DB_URI, {
@@ -20,6 +25,7 @@ mongoose
         process.exit();
     });
 
+
 // Initialize express app
 const app = express();
 app.use(cors())
@@ -31,5 +37,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/auth', authRouter);
+app.use('/api/user', verifyToken, userRouter);
 
 module.exports = app;

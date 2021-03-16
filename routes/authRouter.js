@@ -1,6 +1,17 @@
+const express = require('express');
+const router = express.Router();
+const {
+    Login,
+    Register,
+    resetPassword,
+    sendOtpEmail,
+} = require('../Controllers/authController');
+
 /**
- * @author Saim
+ * @param email
+ * @param password
  */
+router.post('/login', Login);
 
 const express = require('express');
 
@@ -11,7 +22,9 @@ and verification status IF MFA IS DISABLED
  Else will send an otp code to email and return and mfa challenge */
 
 /**
- * @param // email, password
+ * @param email
+ * @param code
+ * @param password
  */
 
 router.post('/login', Login)

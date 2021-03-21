@@ -3,20 +3,9 @@ const router = express.Router();
 const {
     Login,
     Register,
-    resetPassword,
-    sendOtpEmail,
+
 } = require('../Controllers/authController');
 
-/**
- * @param email
- * @param password
- */
-router.post('/login', Login);
-
-const express = require('express');
-
-const router = express.Router();
-const { Login, Register } = require('../controllers/authController')
 /* Verify entered credentials from DB and return a JWT Token along with user details
 and verification status IF MFA IS DISABLED
  Else will send an otp code to email and return and mfa challenge */

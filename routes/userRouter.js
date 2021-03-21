@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const {
-  enableMFA,
-  disableMFA,
-  changePassword,
+    confirmEmail,
+    enableMFA,
+    disableMFA,
+    changePassword,
 } = require('../Controllers/userController');
+
+
+router.post('/verify-email', confirmEmail);
 
 // update password for authenticated user
 router.post('/changeUserPassword', changePassword);

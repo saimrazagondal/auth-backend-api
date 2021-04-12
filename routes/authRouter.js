@@ -69,9 +69,15 @@ router.post('/disableMFA', (req, res) => {
 });
 
 router.get(
+  '/linkedin',
+  passport.authenticate('linkedin', {
+    scope: ['r_basicprofile', 'r_emailaddress'],
+  }),
+);
+router.get(
   '/google',
   passport.authenticate('google', {
-    scope: ['https://www.googleapis.com/auth/plus.login'],
+    scope: ['profile', 'email'],
   }),
 );
 
@@ -79,7 +85,19 @@ router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
-    console.log(req);
+    // console.log(req);
+    res.status(200).json({
+      statusCode: 200,
+      status: 'success',
+      data: req.user,
+    });
+  },
+);
+router.get(
+  '/linkedin/callback',
+  passport.authenticate('linkedin', { failureRedirect: '/login' }),
+  (req, res) => {
+    // console.log(req);
     res.status(200).json({
       statusCode: 200,
       status: 'success',

@@ -24,6 +24,7 @@
     "otp-generator": "^2.0.0",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
+    "passport-linkedin-oauth2": "^2.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
